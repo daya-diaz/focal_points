@@ -1,0 +1,111 @@
+$modal-background-color: #FFFFFF;
+$overlay-background: rgba(255, 255, 255, 0.8);
+$modal-shadow: 0px 24px 48px -12px rgba(16, 24, 40, 0.18);
+$modal-padding: 2rem;
+$modal-border-radius: 16px;
+$gap-large: 32px;
+$font-color-primary: black;
+$font-color-secondary: rgba(0, 0, 0, 0.54);
+$font-size-title: 24px;
+$font-size-label: 1rem;
+$font-size-input: 16px;
+$letter-spacing-tight: -1px;
+$border-color: #D7DDE9;
+$placeholder-color: #000000;
+
+.modalContainer {
+  min-width: 28rem;
+  padding: $modal-padding;
+  border-radius: $modal-border-radius;
+  background-color: $modal-background-color;
+  box-shadow: $modal-shadow;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: $gap-large;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $overlay-background;
+}
+
+.title {
+  color: $font-color-primary;
+  font-size: $font-size-title;
+  font-weight: 500;
+  letter-spacing: $letter-spacing-tight;
+}
+
+.inputContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  color: $font-color-primary;
+  font-weight: 400;
+  font-size: $font-size-label;
+  letter-spacing: $letter-spacing-tight;
+}
+
+.input {
+  font-size: $font-size-input;
+  color: $font-color-primary;
+  padding: 16px;
+  width: 100%;
+  outline: none;
+  border-radius: 8px;
+  border: 1px solid $border-color;
+
+  &::placeholder {
+    color: $placeholder-color;
+    opacity: 0.7;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+}
+
+.errorInput {
+  border-color: red;  // Torna a borda vermelha quando houver erro
+}
+
+.errorMessage {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+//  media query menores que 480px (celulares)
+@media (max-width: 480px) {
+  .modalContainer {
+    min-width: 10px;
+    width: 100vw;
+    height: 100vh;
+    padding: 24px;
+
+  }
+  .input {
+    width: 100%;
+  }
+  .buttonContainer {
+    flex-direction: column-reverse;
+    gap: 16px;
+  }
+}

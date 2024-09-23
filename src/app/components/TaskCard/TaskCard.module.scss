@@ -1,0 +1,96 @@
+// Variáveis
+$border-color: #D7DDE9;
+$hover-bg-color: #F7F9FD;
+$text-color: #000000;
+$opacity-checked: 0.54;
+$transition-duration: 200ms;
+
+// Mixins
+@mixin transition($property) {
+  transition: $property $transition-duration;
+}
+
+// Estilos Gerais
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border: 2px dashed $border-color;
+  border-radius: 8px;
+  background-color: white;
+
+  @include transition(all);
+  cursor: pointer;
+
+  &:hover {
+    background-color: $hover-bg-color;
+    border: 2px solid $hover-bg-color;
+  }
+}
+
+.checkbox {
+  width: 24px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid #D7DDE9;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &[data-state="checked"] {
+    background-color: #A0DCF6;
+    border-color: #0796D3;
+  }
+}
+
+.checkboxIndicator {
+  width: 20px;
+  height: 20px;
+
+  color: #0796D3;
+}
+
+.checkboxContainer {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.deleteTodoButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteTodoButton:hover {
+  background-color: rgb(246, 229, 229);
+}
+
+.label {
+  color: $text-color;
+  font-size: 1rem;
+  letter-spacing: -1px;
+  cursor: pointer;
+
+  &.checked {
+    opacity: $opacity-checked;
+    text-decoration: line-through;
+  }
+}
+
+
+//  media query menores que 480px (celulares)
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+  
+}

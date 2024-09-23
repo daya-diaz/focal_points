@@ -1,0 +1,59 @@
+// Variáveis
+$primary-gradient: linear-gradient(90deg, #0796D3 0%, #53C0F0 68.65%);
+$delete-gradient: linear-gradient(90deg, #D30707 0%, #F05353 68.65%);
+$secondary-bg-color: #E7EEFB;
+$secondary-text-color: black;
+$button-text-color: white;
+$button-padding: 16px;
+$button-font-size: 1rem;
+$button-border-radius: 8px;
+$button-hover-opacity: 0.75;
+
+@mixin buttonBaseStyles {
+  padding: $button-padding;
+  font-size: $button-font-size;
+  font-weight: 500;
+  letter-spacing: -1px;
+  border-radius: $button-border-radius;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  color: $button-text-color;
+  width: 100%;
+
+  &:hover {
+    opacity: $button-hover-opacity;
+  }
+}
+
+.primaryLarge,
+.primarySmall,
+.delete,
+.secondary {
+  @include buttonBaseStyles;
+
+  &.primaryLarge,
+  &.primarySmall {
+    background: $primary-gradient;
+  }
+
+  &.delete {
+    background: $delete-gradient;
+  }
+
+  &.secondary {
+    background-color: $secondary-bg-color;
+    color: $secondary-text-color;
+  }
+}
+
+@media (max-width: 480px) {
+  .primaryLarge,
+  .primarySmall,
+  .delete,
+  .secondary {
+    width: 329px;
+    position: fixed;
+    bottom: 16px;
+  }
+}
